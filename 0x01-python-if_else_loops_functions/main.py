@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
-fizzbuzz = __import__('12-fizzbuzz').fizzbuzz
+remove_char_at = __import__('101-remove_char_at').remove_char_at
 
-fizzbuzz()
+str = remove_char_at("woman", 2)
+print(str)
+print("")
