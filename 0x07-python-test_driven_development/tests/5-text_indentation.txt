@@ -1,0 +1,44 @@
+=================================
+How to use 5-text_indentation.py
+=================================
+
+This module defines a text indentation function: 'text_indentation(text)'
+
+Usage
+=====
+
+The function prints two new lines after each of these characters: ".?:"
+:::
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation('Hello?')
+    Hello?
+    <BLANKLINE>
+
+All spaces before the start of a line are not printed
+:::
+    >>> text_indentation("   Hello boy.")
+    Hello boy.
+    <BLANKLINE>
+
+No spaces are printed at the end of a line
+:::
+    >>> text_indentation("My name is Favour.     ")
+    My name is Favour.
+    <BLANKLINE>
+
+
+Invalid Text
+============
+
+The function expects only strings and will raise an exception if other datatypes
+are passed.
+:::
+    >>> text_indentation(58792)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string

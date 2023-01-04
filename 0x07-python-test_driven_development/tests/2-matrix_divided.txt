@@ -1,0 +1,90 @@
+===============================
+How to use 2-matrix_divided.py
+===============================
+
+This module defines a matrix division function 'matrix_divided(matrix, div)'
+
+Usage
+=====
+'matrix_divided(...)' returns a new matrix that is a copy of 'matrix'
+with all the elements divided by 'div'
+
+:::
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [3, 6, 9],
+    ...     [12, 15, 18]]
+    ...
+    >>> print(matrix_divided(matrix, 3))
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+
+Quotients are rounded to a maximum of 2 decimal places
+:::
+
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]]
+    ...
+    >>> print(matrix_divided(matrix, 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+
+'matrix' must be a list of lists containing integers or floats only. Otherwise,
+a TypeError is raised
+:::
+    
+    >>> matrix = [1, 2, 3]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     ['neptune', 5, 6]]
+    ...
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+The length of each row of the matrix must be equal, otherwise a TypeError is
+raised
+:::
+
+    >>> matrix = [
+    ...     [1, 2],
+    ...     [3, 4, 5]]
+    ...
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+
+Invalid Divisors
+================
+
+'div' must be an integer or float, and must not be 0
+:::
+
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]]
+    ...
+    >>> print(matrix_divided(matrix, 'mars'))
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]]
+    ...
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: div must be a number
