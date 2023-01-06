@@ -40,3 +40,9 @@ If both arguments are not strings, an exception is raised for the first one only
     Traceback (most recent call last):
     ...
     TypeError: first_name must be a string
+
+And if no aegument is passed...
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'

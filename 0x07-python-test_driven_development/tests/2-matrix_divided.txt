@@ -87,4 +87,4 @@ Invalid Divisors
     >>> print(matrix_divided(matrix, 0))
     Traceback (most recent call last):
     ...
-    ZeroDivisionError: div must be a number
+    ZeroDivisionError: division by zero

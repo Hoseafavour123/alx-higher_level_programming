@@ -32,6 +32,6 @@ def matrix_divided(matrix, div):
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
     if div == 0:
-        raise ZeroDivisionError("div must be a number")
+        raise ZeroDivisionError("division by zero")
 
     return ([list(map(lambda x: round(x/div, 2), elem)) for elem in matrix])
