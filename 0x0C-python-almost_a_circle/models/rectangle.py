@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Defines a class Rectangle that inherits from base."""
-Base = __import__('base').Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -40,6 +40,7 @@ class Rectangle(Base):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
+        self.__height = value
 
     @property
     def x(self):
@@ -68,3 +69,44 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """Return the area of a Rectangle instance."""
+        return (self.width * self.height)
+
+    def display(self):
+        """Prints the rectangle to stdout."""
+        rectangle = self.y * "\n"
+        for i in range(self.height):
+            rectangle += (" " * self.x)
+            rectangle += ("#" * self.width) + "\n"
+
+        print(rectangle, end="")
+
+    def __str__(self):
+        """String representation of rectangle instance."""
+        str_rec = "[Rectangle] "
+        str_id = "({}) ".format(self.id)
+        str_xy = "{}/{} - ".format(self.x, self.y)
+        str_wh = "{}/{}".format(self.width, self.height)
+
+        return str_rec + str_id + str_xy + str_wh
+
+    def update(self, *args, **kwargs):
+        """Update the instance attributes."""
+        if (args is not None) and (len(args) != 0):
+            list_atr = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                setattr(self, list_atr[i], args[i])
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+
+    def to_dictionary(self):
+        """Return a dictionary of attributes."""
+        attr = ["id", "width", "height", "x", "y"]
+
+        my_dict = {}
+        for key in attr:
+            my_dict[key] = getattr(self, key)
+        return my_dict
