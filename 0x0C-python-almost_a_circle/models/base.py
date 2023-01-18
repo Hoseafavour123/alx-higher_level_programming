@@ -2,6 +2,7 @@
 """Defines a base class."""
 import json
 
+
 class Base:
     """Model the base class."""
 
@@ -29,7 +30,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Write the JSON string representation of list of instances to a file.
-        
+
         Args:
             list_objs - list of instances that inherit from Base.
         """
@@ -60,7 +61,8 @@ class Base:
     def create(cls, **dictionaries):
         """Returns an instance with all attributes set.
 
-        Description: 'dictionaries' is a key value pair that will be used to set
+        Description: 'dictionaries' is a key value pair
+        that will be used to set
         the attributes of an instance of Rectangle or Square.
         """
         if cls.__name__ == "Rectangle":
